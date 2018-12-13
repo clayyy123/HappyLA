@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 class Home extends Component {
   state = {
-    menu: ['downtown', 'central', 'west'],
+    location: 'which part of LA?',
+    icon: <i class="fas fa-caret-down fa-lg" />,
     toggle: false
   };
 
@@ -13,8 +14,12 @@ class Home extends Component {
           <li onClick={this.listHandler.bind(this)} className="dropdown__item">
             downtown
           </li>
-          <li className="dropdown__item">central</li>
-          <li className="dropdown__item">west</li>
+          <li onClick={this.listHandler.bind(this)} className="dropdown__item">
+            central
+          </li>
+          <li onClick={this.listHandler.bind(this)} className="dropdown__item">
+            west
+          </li>
         </ul>
       );
     }
@@ -23,17 +28,22 @@ class Home extends Component {
   menuHandler() {
     if (!this.state.toggle) {
       this.setState({
-        toggle: true
+        toggle: true,
+        icon: <i class="fas fa-caret-up fa-lg" />
       });
     } else if (this.state.toggle) {
       this.setState({
-        toggle: false
+        toggle: false,
+        icon: <i class="fas fa-caret-down fa-lg" />
       });
     }
   }
 
   listHandler(e) {
-    console.log(e.target.innerText);
+    this.setState({
+      location: e.target.innerText,
+      toggle: false
+    });
   }
 
   render() {
@@ -46,8 +56,13 @@ class Home extends Component {
         <div className="home__search">
           <div className="home__menu">
             <div className="home__location">
-              Which part of LA?
-              <span onClick={this.menuHandler.bind(this)}>icon</span>
+              {this.state.location}
+              <span
+                className="home__icon"
+                onClick={this.menuHandler.bind(this)}
+              >
+                {this.state.icon}
+              </span>
             </div>
             {this.menu()}
           </div>

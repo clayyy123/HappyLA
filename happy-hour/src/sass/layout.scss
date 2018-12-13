@@ -30,6 +30,7 @@
     justify-content: center;
     width: 40%;
     border: 1px solid black;
+    margin-top: 2rem;
   }
 
   &__menu {
@@ -40,6 +41,17 @@
     flex: 0 0 60%;
   }
 
+  &__icon {
+    margin-left: auto;
+    margin-right: 0.3rem;
+    fill: black;
+    transition: all 0.2s;
+
+    &:hover {
+      color: rgba(0, 0, 0, 0.534);
+    }
+  }
+
   &__location {
     display: flex;
     text-transform: lowercase;
@@ -48,10 +60,6 @@
     font-size: 2rem;
     font-family: 'Shadows Into Light Two', cursive;
     color: black;
-
-    span {
-      margin-left: auto;
-    }
   }
 
   &__button {
@@ -63,6 +71,21 @@
     font-family: 'Shadows Into Light Two', cursive;
     font-size: 2rem;
     background-color: rgba(255, 255, 255, 0.555);
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:active {
+      transform: translateY(0.05rem);
+      background-color: rgba(255, 255, 255, 1);
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.7);
+    }
   }
 }
 
@@ -75,9 +98,9 @@
   width: 100%;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.555);
-  // display: none;
 
   &__item {
+    cursor: pointer;
     &:hover {
       background-color: rgba(255, 255, 255, 0.7);
     }

@@ -22,11 +22,19 @@
     display: flex;
     justify-content: center;
     width: 40%;
-    border: 1px solid black; }
+    border: 1px solid black;
+    margin-top: 2rem; }
   .home__menu {
     position: relative;
     background-color: rgba(255, 255, 255, 0.555);
     flex: 0 0 60%; }
+  .home__icon {
+    margin-left: auto;
+    margin-right: 0.3rem;
+    fill: black;
+    transition: all 0.2s; }
+    .home__icon:hover {
+      color: rgba(0, 0, 0, 0.534); }
   .home__location {
     display: flex;
     text-transform: lowercase;
@@ -35,8 +43,6 @@
     font-size: 2rem;
     font-family: 'Shadows Into Light Two', cursive;
     color: black; }
-    .home__location span {
-      margin-left: auto; }
   .home__button {
     flex: 1;
     text-transform: lowercase;
@@ -45,7 +51,16 @@
     padding: 0.5rem;
     font-family: 'Shadows Into Light Two', cursive;
     font-size: 2rem;
-    background-color: rgba(255, 255, 255, 0.555); }
+    background-color: rgba(255, 255, 255, 0.555);
+    transition: all 0.2s;
+    cursor: pointer; }
+    .home__button:focus {
+      outline: none; }
+    .home__button:active {
+      transform: translateY(0.05rem);
+      background-color: white; }
+    .home__button:hover {
+      background-color: rgba(255, 255, 255, 0.7); }
 
 .dropdown {
   position: absolute;
@@ -56,8 +71,10 @@
   width: 100%;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.555); }
-  .dropdown__item:hover {
-    background-color: rgba(255, 255, 255, 0.7); }
+  .dropdown__item {
+    cursor: pointer; }
+    .dropdown__item:hover {
+      background-color: rgba(255, 255, 255, 0.7); }
 
 *,
 *:before,
