@@ -8,9 +8,56 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
-  color: white; }
+  color: white;
+  font-family: 'Shadows Into Light Two', cursive; }
+  .home__title {
+    font-size: 5rem;
+    letter-spacing: 1rem;
+    text-transform: lowercase; }
+  .home__title2 {
+    font-size: 10rem; }
+  .home__slogan {
+    font-size: 3rem; }
   .home__search {
-    display: flex; }
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    border: 1px solid black; }
+  .home__menu {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.555);
+    flex: 0 0 60%; }
+  .home__location {
+    display: flex;
+    text-transform: lowercase;
+    border: none;
+    padding: 0.5rem;
+    font-size: 2rem;
+    font-family: 'Shadows Into Light Two', cursive;
+    color: black; }
+    .home__location span {
+      margin-left: auto; }
+  .home__button {
+    flex: 1;
+    text-transform: lowercase;
+    border: none;
+    border-left: 1px solid black;
+    padding: 0.5rem;
+    font-family: 'Shadows Into Light Two', cursive;
+    font-size: 2rem;
+    background-color: rgba(255, 255, 255, 0.555); }
+
+.dropdown {
+  position: absolute;
+  font-size: 2rem;
+  list-style: none;
+  color: black;
+  background-color: white;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.555); }
+  .dropdown__item:hover {
+    background-color: rgba(255, 255, 255, 0.7); }
 
 *,
 *:before,
