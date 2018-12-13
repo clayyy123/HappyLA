@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:sass": "node-sass happy-hour/src/sass/main.scss happy-hour/src/css/style.css -w"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "express": "^4.16.4",
     "mongoose": "^5.3.16",
     "morgan": "^1.9.1",
+    "node-sass": "^4.11.0",
     "nodemon": "^1.18.8"
   }
 }

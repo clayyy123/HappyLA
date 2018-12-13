@@ -1,0 +1,28 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('../images/main.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+  color: white;
+
+  &__title {
+  }
+
+  &__slogan {
+  }
+
+  &__search {
+    display: flex;
+  }
+
+  &__location {
+  }
+
+  &__button {
+  }
+}
