@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Home extends Component {
   state = {
     location: 'which part of LA?',
-    icon: <i class="fas fa-caret-down fa-lg" />,
+    icon: <i className="fas fa-caret-down fa-lg" />,
     toggle: false
   };
 
@@ -34,7 +35,7 @@ class Home extends Component {
     } else if (this.state.toggle) {
       this.setState({
         toggle: false,
-        icon: <i class="fas fa-caret-down fa-lg" />
+        icon: <i className="fas fa-caret-down fa-lg" />
       });
     }
   }
@@ -42,7 +43,8 @@ class Home extends Component {
   listHandler(e) {
     this.setState({
       location: e.target.innerText,
-      toggle: false
+      toggle: false,
+      icon: <i className="fas fa-caret-down fa-lg" />
     });
   }
 
@@ -66,7 +68,11 @@ class Home extends Component {
             </div>
             {this.menu()}
           </div>
-          <button className="home__button">Start Binging!</button>
+          <button className="home__button">
+            <Link className="home__link" to="/feed">
+              Start Binging!
+            </Link>
+          </button>
         </div>
       </div>
     );

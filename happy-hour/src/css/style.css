@@ -61,6 +61,9 @@
       background-color: white; }
     .home__button:hover {
       background-color: rgba(255, 255, 255, 0.7); }
+  .home__link {
+    text-decoration: none;
+    color: black; }
 
 .dropdown {
   position: absolute;
