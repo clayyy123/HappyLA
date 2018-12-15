@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class Feed extends Component {
   state = {
-    restaraunt: {
+    restaurant: {
       name: 'Boulevard574',
       add: '574 N. DIAMOND BAR BLVD.',
       mon: '4-7',
