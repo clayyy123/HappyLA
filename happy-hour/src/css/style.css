@@ -79,6 +79,31 @@
     .dropdown__item:hover {
       background-color: rgba(255, 255, 255, 0.7); }
 
+.card {
+  display: flex; }
+  .card__dot {
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 50%;
+    background-color: grey; }
+    .card__dot:not(:last-child) {
+      margin-bottom: 0.3rem; }
+  .card__red {
+    background-color: red;
+    -webkit-box-shadow: 0px 0px 16px 21px red;
+    -moz-box-shadow: 0px 0px 16px 21px red;
+    box-shadow: 0px 0px 15px 3px red; }
+  .card__yellow {
+    background-color: yellow;
+    -webkit-box-shadow: 0px 0px 16px 21px yellow;
+    -moz-box-shadow: 0px 0px 16px 21px yellow;
+    box-shadow: 0px 0px 15px 3px yellow; }
+  .card__green {
+    background-color: rgba(0, 128, 0, 0.8);
+    -webkit-box-shadow: 0px 0px 16px 21px green;
+    -moz-box-shadow: 0px 0px 16px 21px green;
+    box-shadow: 0px 0px 15px 3px green; }
+
 *,
 *:before,
 *:after {
