@@ -17,6 +17,7 @@
     "mongoose": "^5.3.16",
     "morgan": "^1.9.1",
     "node-sass": "^4.11.0",
-    "nodemon": "^1.18.8"
+    "nodemon": "^1.18.8",
+    "yelp-fusion": "^2.2.1"
   }
 }

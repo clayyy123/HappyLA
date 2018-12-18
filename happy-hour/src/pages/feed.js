@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import httpClient from '../httpClient.js';
 
 class Feed extends Component {
   state = {
     days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     restaurant: {
-      name: 'Boulevard574',
+      name: 'Boulevard 574',
       add: '574 N. DIAMOND BAR BLVD.',
       0: '',
       1: [4, 5, 6, 7],
-      2: [4, 5, 6, 7],
+      2: [7, 8, 9, 10],
       3: [4, 5, 6, 7],
       4: [4, 5, 6, 7],
       5: [4, 5, 6, 7],
@@ -19,6 +20,12 @@ class Feed extends Component {
     },
     date: new Date()
   };
+
+  componentDidMount() {
+    httpClient.getInfo('Boulevard 574').then(response => {
+      console.log(response);
+    });
+  }
 
   currentDay() {
     return this.state.date.getDay();
