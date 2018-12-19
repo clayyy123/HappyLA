@@ -33,11 +33,33 @@ class Feed extends Component {
       this.setState({
         image: response.data.data.image_url,
         price: response.data.data.price,
-        rating: response.data.data.rating,
+        rating: '4.5',
         count: response.data.data.review_count,
         location: response.data.data.location.address1
       });
     });
+  }
+
+  render() {
+    return (
+      <div className="card">
+        {this.lightHandler()}
+        {this.ratingHandler()}
+        {this.priceHandler()}
+        <div className="card__info">
+          <h1 className="card__title">{this.state.restaurant.name}</h1>
+          <h2>
+            Today: {this.state.restaurant[this.currentDay()][0]}pm -
+            {
+              this.state.restaurant[this.currentDay()][
+                this.state.restaurant[this.currentDay()].length - 1
+              ]
+            }
+            pm
+          </h2>
+        </div>
+      </div>
+    );
   }
 
   currentDay() {
@@ -87,24 +109,92 @@ class Feed extends Component {
     }
   }
 
-  render() {
-    return (
-      <div className="card">
-        <div className="card__info">
-          <h1 className="card__title">{this.state.restaurant.name}</h1>
-          <h2>
-            Today: {this.state.restaurant[this.currentDay()][0]}pm -
-            {
-              this.state.restaurant[this.currentDay()][
-                this.state.restaurant[this.currentDay()].length - 1
-              ]
-            }
-            pm
-          </h2>
+  ratingHandler() {
+    let ratingSplit = `${this.state.rating}`.split('.');
+    if (ratingSplit[0] === '3' && ratingSplit[1]) {
+      return (
+        <div className="card__stars">
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star-half" />
         </div>
-        {this.lightHandler()}
-      </div>
-    );
+      );
+    } else if (ratingSplit[0] === '3') {
+      return (
+        <div className="card__stars">
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+        </div>
+      );
+    } else if (ratingSplit[0] === '4' && ratingSplit[1]) {
+      return (
+        <div className="card__stars">
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star-half" />
+        </div>
+      );
+    } else if (ratingSplit[0] === '4') {
+      return (
+        <div className="card__stars">
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star-half" />
+        </div>
+      );
+    } else if (ratingSplit[0] === '5' && ratingSplit[1]) {
+      return (
+        <div className="card__stars">
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star-half" />
+        </div>
+      );
+    } else if (ratingSplit[0] === '5') {
+      return (
+        <div className="card__stars">
+          <i class="fas fa-star" />
+          <i class="fas fa-star" />
+          <i class="fas fa-star" />
+          <i class="fas fa-star" />
+          <i class="fas fa-star" />
+        </div>
+      );
+    }
+  }
+
+  priceHandler() {
+    if (this.state.price.length === 1) {
+      return (
+        <div className="card__price">
+          <i className="fas fa-dollar-sign" />
+        </div>
+      );
+    } else if (this.state.price.length === 2) {
+      return (
+        <div className="card__price">
+          <i className="fas fa-dollar-sign" />
+          <i className="fas fa-dollar-sign" />
+        </div>
+      );
+    } else if (this.state.price.length === 3) {
+      return (
+        <div className="card__price">
+          <i className="fas fa-dollar-sign" />
+          <i className="fas fa-dollar-sign" />
+          <i className="fas fa-dollar-sign" />
+        </div>
+      );
+    }
   }
 }
 

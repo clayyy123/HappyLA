@@ -118,13 +118,19 @@
 //######CARD
 .card {
   display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  max-width: 35rem;
+
   &__info {
   }
 
   &__title {
   }
 
-  &__lights {
+  &__light {
+    display: flex;
+    justify-content: space-evenly;
   }
 
   &__dot {
@@ -132,10 +138,7 @@
     width: 2.5rem;
     border-radius: 50%;
     background-color: grey;
-
-    &:not(:last-child) {
-      margin-bottom: 0.3rem;
-    }
+    margin-bottom: 0.3rem;
   }
 
   &__red {
