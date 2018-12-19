@@ -20,6 +20,7 @@ module.exports = {
         location: 'los angeles, ca'
       })
       .then(response => {
+        console.log('controller');
         console.log(response.jsonBody.businesses[0]);
         res.json({ data: response.jsonBody.businesses[0] });
       })

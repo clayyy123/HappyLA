@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import httpClient from '../httpClient.js';
+import httpClient from '../httpClient';
 
 class Feed extends Component {
   state = {
@@ -18,12 +18,25 @@ class Feed extends Component {
       food: true,
       alk: true
     },
-    date: new Date()
+    date: new Date(),
+    image: '',
+    price: '',
+    rating: '',
+    count: '',
+    location: ''
   };
 
   componentDidMount() {
+    console.log('hi');
     httpClient.getInfo('Boulevard 574').then(response => {
       console.log(response);
+      this.setState({
+        image: response.data.data.image_url,
+        price: response.data.data.price,
+        rating: response.data.data.rating,
+        count: response.data.data.review_count,
+        location: response.data.data.location.address1
+      });
     });
   }
 
@@ -40,7 +53,7 @@ class Feed extends Component {
     let end = this.state.restaurant[this.currentDay()][
       this.state.restaurant[this.currentDay()].length - 1
     ];
-    console.log(this.state.restaurant[this.currentDay()].indexOf(hour));
+
     if (hour > 12) {
       hour = hour - 12;
       console.log('what');
