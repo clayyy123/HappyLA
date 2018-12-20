@@ -24,7 +24,8 @@ class Feed extends Component {
     rating: '',
     count: '',
     location: '',
-    number: ''
+    number: '',
+    link: ''
   };
 
   componentDidMount() {
@@ -37,7 +38,8 @@ class Feed extends Component {
         rating: '4.5',
         count: response.data.data.review_count,
         location: response.data.data.location.address1,
-        number: response.data.data.display_phone
+        number: response.data.data.display_phone,
+        link: response.data.data.url
       });
     });
   }
@@ -55,13 +57,28 @@ class Feed extends Component {
             />
           </div>
           <div className="card__left">
-            <h1 className="card__title">{this.state.restaurant.name}</h1>
-            <div className="card__ratingCount">
-              {this.ratingHandler()}
-              <span className="card__count">{this.state.count}</span> reviews
+            <a className="card__link" target="_blank" href={this.state.link}>
+              <h1 className="card__title">{this.state.restaurant.name}</h1>
+            </a>
+            <div className="card__stats">
+              <h3>STATS:</h3>
+              <ul>
+                <li className="card__stat">
+                  <i class="fas fa-beer card__list-style" /> RATING:{' '}
+                  {this.ratingHandler()}
+                </li>
+                <li className="card__stat">
+                  <i class="fas fa-beer card__list-style" />
+                  REVIEWS:{' '}
+                  <span className="card__count">{this.state.count}</span>
+                </li>
+                <li className="card__stat">
+                  <i class="fas fa-beer card__list-style" />
+                  PRICE: {this.priceHandler()}
+                </li>
+              </ul>
             </div>
-            {this.priceHandler()}
-            <h2>
+            <h2 className="card__hH">
               {this.currentName()}:{' '}
               {this.state.restaurant[this.currentDay()][0]}
               pm -
@@ -137,7 +154,8 @@ class Feed extends Component {
           <i className="fas fa-star" />
           <i className="fas fa-star" />
           <i className="fas fa-star" />
-          <i className="fas fa-star-half" />
+          <i class="fas fa-star-half-alt" />
+          <i class="far fa-star" />
         </div>
       );
     } else if (ratingSplit[0] === '3') {
@@ -146,6 +164,8 @@ class Feed extends Component {
           <i className="fas fa-star" />
           <i className="fas fa-star" />
           <i className="fas fa-star" />
+          <i class="far fa-star" />
+          <i class="far fa-star" />
         </div>
       );
     } else if (ratingSplit[0] === '4' && ratingSplit[1]) {
@@ -155,7 +175,7 @@ class Feed extends Component {
           <i className="fas fa-star" />
           <i className="fas fa-star" />
           <i className="fas fa-star" />
-          <i className="fas fa-star-half" />
+          <i class="fas fa-star-half-alt" />
         </div>
       );
     } else if (ratingSplit[0] === '4') {
@@ -165,18 +185,7 @@ class Feed extends Component {
           <i className="fas fa-star" />
           <i className="fas fa-star" />
           <i className="fas fa-star" />
-          <i className="fas fa-star-half" />
-        </div>
-      );
-    } else if (ratingSplit[0] === '5' && ratingSplit[1]) {
-      return (
-        <div className="card__stars">
-          <i className="fas fa-star" />
-          <i className="fas fa-star" />
-          <i className="fas fa-star" />
-          <i className="fas fa-star" />
-          <i className="fas fa-star" />
-          <i className="fas fa-star-half" />
+          <i class="far fa-star" />
         </div>
       );
     } else if (ratingSplit[0] === '5') {

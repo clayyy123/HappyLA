@@ -120,7 +120,8 @@
   display: flex;
   flex-direction: column;
   border: 1px solid black;
-  width: 45%;
+  width: 55rem;
+  height: 18rem;
   border-radius: 2rem;
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
@@ -133,8 +134,7 @@
 
   &__image-holder {
     flex: 0 0 30%;
-    overflow: hidden;
-    height: 15rem;
+    height: 100%;
   }
 
   &__image {
@@ -146,21 +146,57 @@
   }
 
   &__right {
-    margin: 1rem;
+    margin: 4rem 1rem;
   }
+
   &__title {
     font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: black;
+  }
+
+  &__hH {
+    font-size: 2rem;
+  }
+
+  &__stars {
+    display: inline-block;
+  }
+
+  &__stats {
+    margin-bottom: 1rem;
+  }
+
+  &__stat {
+    list-style: none;
+
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &__list-style {
+    margin-right: 0.5rem;
+  }
+
+  &__count {
+    font-weight: 800;
+  }
+
+  &__price {
+    display: inline-block;
   }
 
   &__light {
     display: flex;
     justify-content: space-evenly;
     // position: absolute;
-    background-color: black;
-  }
-
-  &__ratingCount {
-    display: flex;
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 10%;
   }
 
   &__dot {

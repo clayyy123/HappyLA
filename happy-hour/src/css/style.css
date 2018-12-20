@@ -83,7 +83,8 @@
   display: flex;
   flex-direction: column;
   border: 1px solid black;
-  width: 45%;
+  width: 55rem;
+  height: 18rem;
   border-radius: 2rem;
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
@@ -93,22 +94,40 @@
     justify-content: space-between; }
   .card__image-holder {
     flex: 0 0 30%;
-    overflow: hidden;
-    height: 15rem; }
+    height: 100%; }
   .card__image {
     width: 100%; }
   .card__left {
     margin: 1rem; }
   .card__right {
-    margin: 1rem; }
+    margin: 4rem 1rem; }
   .card__title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem; }
+  .card__link {
+    text-decoration: none;
+    color: black; }
+  .card__hH {
     font-size: 2rem; }
+  .card__stars {
+    display: inline-block; }
+  .card__stats {
+    margin-bottom: 1rem; }
+  .card__stat {
+    list-style: none; }
+    .card__stat:not(:last-child) {
+      margin-bottom: 0.5rem; }
+  .card__list-style {
+    margin-right: 0.5rem; }
+  .card__count {
+    font-weight: 800; }
+  .card__price {
+    display: inline-block; }
   .card__light {
     display: flex;
     justify-content: space-evenly;
-    background-color: black; }
-  .card__ratingCount {
-    display: flex; }
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 10%; }
   .card__dot {
     height: 0.5rem;
     width: 0.5rem;
