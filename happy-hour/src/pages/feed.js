@@ -35,7 +35,7 @@ class Feed extends Component {
       this.setState({
         image: response.data.data.image_url,
         price: response.data.data.price,
-        rating: '4.5',
+        rating: response.data.data.rating,
         count: response.data.data.review_count,
         location: response.data.data.location.address1,
         number: response.data.data.display_phone,
@@ -57,7 +57,12 @@ class Feed extends Component {
             />
           </div>
           <div className="card__left">
-            <a className="card__link" target="_blank" href={this.state.link}>
+            <a
+              className="card__link"
+              target="_blank"
+              rel="noopener noreferrer"
+              href={this.state.link}
+            >
               <h1 className="card__title">{this.state.restaurant.name}</h1>
             </a>
             <div className="card__stats">
@@ -121,16 +126,12 @@ class Feed extends Component {
       if (end - hour <= 1) {
         return (
           <div className="card__light">
-            <div className="card__dot" />
             <div className="card__dot card__yellow" />
-            <div className="card__dot" />
           </div>
         );
       } else if (end - hour > 1) {
         return (
           <div className="card__light">
-            <div className="card__dot" />
-            <div className="card__dot" />
             <div className="card__dot card__green" />
           </div>
         );
@@ -139,8 +140,6 @@ class Feed extends Component {
       return (
         <div className="card__light">
           <div className="card__dot card__red" />
-          <div className="card__dot" />
-          <div className="card__dot" />
         </div>
       );
     }

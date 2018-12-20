@@ -84,7 +84,7 @@
   flex-direction: column;
   border: 1px solid black;
   width: 55rem;
-  height: 18rem;
+  height: 17rem;
   border-radius: 2rem;
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
@@ -104,6 +104,8 @@
   .card__title {
     font-size: 2rem;
     margin-bottom: 0.5rem; }
+    .card__title:hover {
+      text-decoration: underline; }
   .card__link {
     text-decoration: none;
     color: black; }
@@ -125,13 +127,14 @@
     display: inline-block; }
   .card__light {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
     background-color: rgba(0, 0, 0, 0.8);
     height: 10%; }
   .card__dot {
     height: 0.5rem;
     width: 0.5rem;
-    border-radius: 50%;
+    border-radius: 0.1rem;
     background-color: grey;
     margin: 0.3rem 0; }
   .card__red {
