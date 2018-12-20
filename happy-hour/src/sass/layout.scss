@@ -120,25 +120,55 @@
   display: flex;
   flex-direction: column;
   border: 1px solid black;
-  max-width: 35rem;
+  width: 45%;
+  border-radius: 2rem;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
 
   &__info {
+    display: flex;
+    justify-content: space-between;
   }
 
+  &__image-holder {
+    flex: 0 0 30%;
+    overflow: hidden;
+    height: 15rem;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__left {
+    margin: 1rem;
+  }
+
+  &__right {
+    margin: 1rem;
+  }
   &__title {
+    font-size: 2rem;
   }
 
   &__light {
     display: flex;
     justify-content: space-evenly;
+    // position: absolute;
+    background-color: black;
+  }
+
+  &__ratingCount {
+    display: flex;
   }
 
   &__dot {
-    height: 2.5rem;
-    width: 2.5rem;
+    height: 0.5rem;
+    width: 0.5rem;
     border-radius: 50%;
     background-color: grey;
-    margin-bottom: 0.3rem;
+    margin: 0.3rem 0;
   }
 
   &__red {

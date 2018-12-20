@@ -23,7 +23,8 @@ class Feed extends Component {
     price: '',
     rating: '',
     count: '',
-    location: ''
+    location: '',
+    number: ''
   };
 
   componentDidMount() {
@@ -35,7 +36,8 @@ class Feed extends Component {
         price: response.data.data.price,
         rating: '4.5',
         count: response.data.data.review_count,
-        location: response.data.data.location.address1
+        location: response.data.data.location.address1,
+        number: response.data.data.display_phone
       });
     });
   }
@@ -44,19 +46,37 @@ class Feed extends Component {
     return (
       <div className="card">
         {this.lightHandler()}
-        {this.ratingHandler()}
-        {this.priceHandler()}
         <div className="card__info">
-          <h1 className="card__title">{this.state.restaurant.name}</h1>
-          <h2>
-            Today: {this.state.restaurant[this.currentDay()][0]}pm -
-            {
-              this.state.restaurant[this.currentDay()][
-                this.state.restaurant[this.currentDay()].length - 1
-              ]
-            }
-            pm
-          </h2>
+          <div className="card__image-holder">
+            <img
+              className="card__image"
+              src={this.state.image}
+              alt="restaurant"
+            />
+          </div>
+          <div className="card__left">
+            <h1 className="card__title">{this.state.restaurant.name}</h1>
+            <div className="card__ratingCount">
+              {this.ratingHandler()}
+              <span className="card__count">{this.state.count}</span> reviews
+            </div>
+            {this.priceHandler()}
+            <h2>
+              {this.currentName()}:{' '}
+              {this.state.restaurant[this.currentDay()][0]}
+              pm -
+              {
+                this.state.restaurant[this.currentDay()][
+                  this.state.restaurant[this.currentDay()].length - 1
+                ]
+              }
+              pm
+            </h2>
+          </div>
+          <div className="card__right">
+            <h3>{this.state.location}</h3>
+            <h3>{this.state.number}</h3>
+          </div>
         </div>
       </div>
     );
