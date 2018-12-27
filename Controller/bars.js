@@ -8,6 +8,7 @@ const client = yelp.client(apiKey);
 module.exports = {
   create: (req, res) => {
     Bar.create(req.body, (err, bar) => {
+      console.log(err);
       if (err) return res.json({ success: false, code: err.code });
       else res.json({ success: true, bar: bar });
     });

@@ -5,14 +5,17 @@ const barSchema = new mongoose.Schema({
   food: { type: Boolean },
   alk: { type: Boolean },
   late: { type: Boolean },
-  hh: [String],
-  0: [Number],
-  1: [Number],
-  2: [Number],
-  3: [Number],
-  4: [Number],
-  5: [Number],
-  6: [Number]
+  everyday: { type: Boolean },
+  weekdayOnly: { type: Boolean },
+  weekendOnly: { type: Boolean },
+  onlyHours: { type: String },
+  0: { type: String },
+  1: { type: String },
+  2: { type: String },
+  3: { type: String },
+  4: { type: String },
+  5: { type: String },
+  6: { type: String }
 });
 
 const Bar = mongoose.model('Bar', barSchema);
