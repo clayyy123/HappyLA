@@ -5,14 +5,18 @@ class Card extends Component {
   state = {
     days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     restaurant: {
-      name: 'Boulevard 574',
-      add: '574 N. DIAMOND BAR BLVD.',
+      name: this.props.props.name,
+      add: '',
+      weekdayOnly: this.props.props.weekdayOnly,
+      weekendOnly: this.props.props.weekendOnly,
+      everyday: this.props.props.everyday,
+      onlyHours: this.props.props.onlyHours,
       0: '',
-      1: [4, 5, 6, 7],
-      2: [7, 8, 9, 10],
-      3: [4, 5, 6, 7],
-      4: [4, 5, 6, 7],
-      5: [4, 5, 6, 7],
+      1: '',
+      2: '',
+      3: '',
+      4: '',
+      5: '',
       6: ''
     },
     date: new Date(),
@@ -29,6 +33,9 @@ class Card extends Component {
     httpClient.getInfo(this.state.restaurant.name).then(response => {
       console.log(response);
       this.setState({
+        restaurant: {
+          add: response.data.data.address1
+        },
         image: response.data.data.image_url,
         price: response.data.data.price,
         rating: response.data.data.rating,
@@ -59,7 +66,7 @@ class Card extends Component {
               rel="noopener noreferrer"
               href={this.state.link}
             >
-              <h1 className="card__title">{this.state.restaurant.name}</h1>
+              <h1 className="card__title">{this.props.props.name}</h1>
             </a>
             <div className="card__stats">
               <h3>STATS:</h3>
@@ -79,17 +86,7 @@ class Card extends Component {
                 </li>
               </ul>
             </div>
-            <h2 className="card__hH">
-              {this.currentName()}:{' '}
-              {this.state.restaurant[this.currentDay()][0]}
-              pm -
-              {
-                this.state.restaurant[this.currentDay()][
-                  this.state.restaurant[this.currentDay()].length - 1
-                ]
-              }
-              pm
-            </h2>
+            {this.hourHandler()}
           </div>
           <div className="card__right">
             <h3>{this.state.location}</h3>
@@ -108,36 +105,61 @@ class Card extends Component {
     return this.state.days[this.currentDay()];
   }
 
-  lightHandler() {
-    let hour = this.state.date.getHours();
-    let end = this.state.restaurant[this.currentDay()][
-      this.state.restaurant[this.currentDay()].length - 1
-    ];
-
-    if (hour > 12) {
-      hour = hour - 12;
-      console.log('what');
+  hourHandler() {
+    const {
+      weekendoNly,
+      weekdayOnly,
+      everyday,
+      onlyHours
+    } = this.state.restaurant;
+    if (weekdayOnly || weekendoNly || everyday) {
+      return (
+        <h2 className="card__hH">
+          {this.currentName()}: {onlyHours}
+        </h2>
+      );
     }
-    if (this.state.restaurant[this.currentDay()].indexOf(hour) !== -1) {
-      if (end - hour <= 1) {
+  }
+
+  lightHandler() {
+    const {
+      weekendoNly,
+      weekdayOnly,
+      everyday,
+      onlyHours
+    } = this.state.restaurant;
+
+    console.log(weekendoNly, weekdayOnly, everyday, onlyHours);
+
+    let hour = this.state.date.getHours();
+    var timeArray;
+
+    if (weekendoNly || weekdayOnly || everyday) {
+      timeArray = onlyHours.split('-');
+      let start = parseInt(timeArray[0]);
+      let end = parseInt(timeArray[timeArray.length - 1]);
+      if (hour >= start && hour <= end && end - hour <= 1) {
+        console.log('yellow');
         return (
           <div className="card__light">
             <div className="card__dot card__yellow" />
           </div>
         );
-      } else if (end - hour > 1) {
+      } else if (hour >= start && hour <= end && end - hour > 1) {
+        console.log('green');
         return (
           <div className="card__light">
             <div className="card__dot card__green" />
           </div>
         );
+      } else {
+        console.log('red');
+        return (
+          <div className="card__light">
+            <div className="card__dot card__red" />
+          </div>
+        );
       }
-    } else {
-      return (
-        <div className="card__light">
-          <div className="card__dot card__red" />
-        </div>
-      );
     }
   }
 
@@ -197,27 +219,29 @@ class Card extends Component {
   }
 
   priceHandler() {
-    if (this.state.price.length === 1) {
-      return (
-        <div className="card__price">
-          <i className="fas fa-dollar-sign" />
-        </div>
-      );
-    } else if (this.state.price.length === 2) {
-      return (
-        <div className="card__price">
-          <i className="fas fa-dollar-sign" />
-          <i className="fas fa-dollar-sign" />
-        </div>
-      );
-    } else if (this.state.price.length === 3) {
-      return (
-        <div className="card__price">
-          <i className="fas fa-dollar-sign" />
-          <i className="fas fa-dollar-sign" />
-          <i className="fas fa-dollar-sign" />
-        </div>
-      );
+    if (this.state.price) {
+      if (this.state.price.length === 1) {
+        return (
+          <div className="card__price">
+            <i className="fas fa-dollar-sign" />
+          </div>
+        );
+      } else if (this.state.price.length === 2) {
+        return (
+          <div className="card__price">
+            <i className="fas fa-dollar-sign" />
+            <i className="fas fa-dollar-sign" />
+          </div>
+        );
+      } else if (this.state.price.length === 3) {
+        return (
+          <div className="card__price">
+            <i className="fas fa-dollar-sign" />
+            <i className="fas fa-dollar-sign" />
+            <i className="fas fa-dollar-sign" />
+          </div>
+        );
+      }
     }
   }
 }

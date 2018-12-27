@@ -126,19 +126,22 @@
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
   overflow: hidden;
+  margin: 2rem;
 
   &__info {
     display: flex;
     justify-content: space-between;
+    height: 100%;
   }
 
   &__image-holder {
     flex: 0 0 30%;
-    height: 100%;
+    overflow: hidden;
   }
 
   &__image {
     width: 100%;
+    object-fit: cover;
   }
 
   &__left {

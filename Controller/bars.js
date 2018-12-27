@@ -6,6 +6,12 @@ const yelp = require('yelp-fusion');
 const client = yelp.client(apiKey);
 
 module.exports = {
+  index: (req, res) => {
+    Bar.find({}, (err, allBars) => {
+      res.json(allBars);
+    });
+  },
+
   create: (req, res) => {
     Bar.create(req.body, (err, bar) => {
       console.log(err);
