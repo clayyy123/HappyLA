@@ -31,11 +31,7 @@ class Card extends Component {
 
   componentDidMount() {
     httpClient.getInfo(this.state.restaurant.name).then(response => {
-      console.log(response);
       this.setState({
-        restaurant: {
-          add: response.data.data.address1
-        },
         image: response.data.data.image_url,
         price: response.data.data.price,
         rating: response.data.data.rating,
@@ -107,38 +103,57 @@ class Card extends Component {
 
   hourHandler() {
     const {
-      weekendoNly,
+      weekendOnly,
       weekdayOnly,
       everyday,
       onlyHours
     } = this.state.restaurant;
-    if (weekdayOnly || weekendoNly || everyday) {
-      return (
-        <h2 className="card__hH">
-          {this.currentName()}: {onlyHours}
-        </h2>
-      );
+
+    if (weekdayOnly || weekendOnly || everyday) {
+      var timeArray = onlyHours.split('-');
+      var newHours;
+      if (timeArray[0] > 12) {
+        timeArray[0] = timeArray[0] - 12 + 'pm';
+        timeArray[1] = timeArray[1] - 12 + 'pm';
+        newHours = timeArray.join('-');
+        return (
+          <h2 className="card__hH">
+            {this.currentName()}: {newHours}
+          </h2>
+        );
+      } else {
+        return (
+          <h2 className="card__hH">
+            {this.currentName()}: {onlyHours}
+          </h2>
+        );
+      }
     }
   }
 
   lightHandler() {
     const {
-      weekendoNly,
+      weekendOnly,
       weekdayOnly,
       everyday,
       onlyHours
     } = this.state.restaurant;
 
-    console.log(weekendoNly, weekdayOnly, everyday, onlyHours);
-
     let hour = this.state.date.getHours();
+    let minutes = this.state.date.getMinutes();
     var timeArray;
 
-    if (weekendoNly || weekdayOnly || everyday) {
+    if (weekendOnly || weekdayOnly || everyday) {
       timeArray = onlyHours.split('-');
       let start = parseInt(timeArray[0]);
-      let end = parseInt(timeArray[timeArray.length - 1]);
-      if (hour >= start && hour <= end && end - hour <= 1) {
+      let end = parseInt(timeArray[1]);
+      if (start > 12 && hour > 12) {
+        start = start - 12;
+        end = end - 12;
+        hour = hour - 12;
+        console.log(start, end, hour, minutes);
+      }
+      if (hour >= start && hour <= end && end !== hour && minutes <= 59) {
         console.log('yellow');
         return (
           <div className="card__light">
