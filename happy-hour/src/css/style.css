@@ -79,17 +79,23 @@
     .dropdown__item:hover {
       background-color: rgba(255, 255, 255, 0.7); }
 
+.feed {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2rem; }
+
 .card {
   display: flex;
   flex-direction: column;
   border: 1px solid black;
   width: 55rem;
   height: 17rem;
-  border-radius: 2rem;
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
   overflow: hidden;
-  margin: 2rem; }
+  background-color: white;
+  transition: all 0.1s; }
   .card__info {
     display: flex;
     height: 100%; }
@@ -167,3 +173,6 @@ html {
 
 body {
   font-size: 1rem; }
+
+.container {
+  background: green; }

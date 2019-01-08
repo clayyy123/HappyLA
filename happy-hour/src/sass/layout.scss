@@ -115,6 +115,16 @@
 }
 
 //###########################
+//######FEED PAGE
+
+.feed {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2rem;
+}
+
+//###########################
 //######CARD
 .card {
   display: flex;
@@ -122,11 +132,14 @@
   border: 1px solid black;
   width: 55rem;
   height: 17rem;
-  border-radius: 2rem;
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
   overflow: hidden;
-  margin: 2rem;
+  background-color: white;
+  transition: all 0.1s;
+
+  &:hover {
+  }
 
   &__info {
     display: flex;
