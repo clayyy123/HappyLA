@@ -101,10 +101,11 @@
     height: 100%; }
   .card__image-holder {
     flex: 0 0 30%;
-    overflow: hidden; }
+    overflow: hidden;
+    height: 150%; }
   .card__image {
     width: 100%;
-    object-fit: cover; }
+    height: auto; }
   .card__left {
     margin: 1rem; }
   .card__right {
