@@ -68,8 +68,8 @@ class Card extends Component {
               <h3>STATS:</h3>
               <ul>
                 <li className="card__stat">
-                  <i class="fas fa-beer card__list-style" /> RATING:{' '}
-                  {this.ratingHandler()}
+                  <i class="fas fa-beer card__list-style" />
+                  RATING: {this.ratingHandler()}
                 </li>
                 <li className="card__stat">
                   <i class="fas fa-beer card__list-style" />
@@ -85,7 +85,17 @@ class Card extends Component {
             {this.hourHandler()}
           </div>
           <div className="card__right">
-            <h3>{this.state.location}</h3>
+            <a
+              target="_blank"
+              href={
+                'http://maps.google.com/?q=' +
+                this.state.location +
+                'los angeles,CA'
+              }
+              className="card__address"
+            >
+              <h3>{this.state.location}</h3>
+            </a>
             <h3>{this.state.number}</h3>
           </div>
         </div>

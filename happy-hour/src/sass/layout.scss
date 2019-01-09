@@ -119,9 +119,29 @@
 
 .feed {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   margin: 2rem;
+  font-family: 'Montserrat', sans-serif;
+
+  &__map {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__light {
+  }
+
+  &__title {
+    font-size: 5rem;
+    text-align: center;
+  }
+
+  &__bars {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 //###########################
@@ -137,6 +157,10 @@
   overflow: hidden;
   background-color: white;
   transition: all 0.1s;
+  margin: 0.5rem;
+  -webkit-box-shadow: 2px 3px 5px 0px rgba(107, 107, 107, 1);
+  -moz-box-shadow: 2px 3px 5px 0px rgba(107, 107, 107, 1);
+  box-shadow: 2px 3px 5px 0px rgba(107, 107, 107, 1);
 
   &:hover {
   }
@@ -149,12 +173,13 @@
   &__image-holder {
     flex: 0 0 30%;
     overflow: hidden;
-    height: 150%;
+    height: 100%;
   }
 
   &__image {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
   }
 
   &__left {
@@ -211,6 +236,15 @@
     display: inline-block;
   }
 
+  &__address {
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   &__light {
     display: flex;
     justify-content: center;
@@ -223,7 +257,6 @@
     height: 0.5rem;
     width: 0.5rem;
     border-radius: 0.1rem;
-    background-color: grey;
     margin: 0.3rem 0;
   }
 

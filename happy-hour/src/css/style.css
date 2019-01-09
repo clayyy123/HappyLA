@@ -81,9 +81,20 @@
 
 .feed {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
-  margin: 2rem; }
+  margin: 2rem;
+  font-family: 'Montserrat', sans-serif; }
+  .feed__map {
+    display: flex;
+    justify-content: center; }
+  .feed__title {
+    font-size: 5rem;
+    text-align: center; }
+  .feed__bars {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
 
 .card {
   display: flex;
@@ -95,17 +106,22 @@
   font-family: 'Montserrat', sans-serif;
   overflow: hidden;
   background-color: white;
-  transition: all 0.1s; }
+  transition: all 0.1s;
+  margin: 0.5rem;
+  -webkit-box-shadow: 2px 3px 5px 0px #6b6b6b;
+  -moz-box-shadow: 2px 3px 5px 0px #6b6b6b;
+  box-shadow: 2px 3px 5px 0px #6b6b6b; }
   .card__info {
     display: flex;
     height: 100%; }
   .card__image-holder {
     flex: 0 0 30%;
     overflow: hidden;
-    height: 150%; }
+    height: 100%; }
   .card__image {
     width: 100%;
-    height: auto; }
+    height: 100%;
+    object-fit: cover; }
   .card__left {
     margin: 1rem; }
   .card__right {
@@ -134,6 +150,11 @@
     font-weight: 800; }
   .card__price {
     display: inline-block; }
+  .card__address {
+    text-decoration: none;
+    color: black; }
+    .card__address:hover {
+      text-decoration: underline; }
   .card__light {
     display: flex;
     justify-content: center;
@@ -144,7 +165,6 @@
     height: 0.5rem;
     width: 0.5rem;
     border-radius: 0.1rem;
-    background-color: grey;
     margin: 0.3rem 0; }
   .card__red {
     background-color: red;
@@ -174,6 +194,3 @@ html {
 
 body {
   font-size: 1rem; }
-
-.container {
-  background: green; }
