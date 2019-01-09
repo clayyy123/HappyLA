@@ -108,10 +108,11 @@
   overflow: hidden;
   background-color: white;
   transition: all 0.1s;
-  margin: 0.5rem;
-  -webkit-box-shadow: 2px 3px 5px 0px #6b6b6b;
-  -moz-box-shadow: 2px 3px 5px 0px #6b6b6b;
-  box-shadow: 2px 3px 5px 0px #6b6b6b; }
+  margin: 0.5rem; }
+  .card:hover {
+    -webkit-box-shadow: 2px 3px 5px 0px #6b6b6b;
+    -moz-box-shadow: 2px 3px 5px 0px #6b6b6b;
+    box-shadow: 2px 3px 5px 0px #6b6b6b; }
   .card__info {
     display: flex;
     height: 100%; }

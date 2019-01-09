@@ -244,6 +244,9 @@ class Card extends Component {
   }
 
   priceHandler() {
+    if (!this.state.price) {
+      return <div className="card__price">N/A</div>;
+    }
     if (this.state.price) {
       if (this.state.price.length === 1) {
         return (

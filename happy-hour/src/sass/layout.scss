@@ -157,11 +157,11 @@
   background-color: white;
   transition: all 0.1s;
   margin: 0.5rem;
-  -webkit-box-shadow: 2px 3px 5px 0px rgba(107, 107, 107, 1);
-  -moz-box-shadow: 2px 3px 5px 0px rgba(107, 107, 107, 1);
-  box-shadow: 2px 3px 5px 0px rgba(107, 107, 107, 1);
 
   &:hover {
+    -webkit-box-shadow: 2px 3px 5px 0px rgba(107, 107, 107, 1);
+    -moz-box-shadow: 2px 3px 5px 0px rgba(107, 107, 107, 1);
+    box-shadow: 2px 3px 5px 0px rgba(107, 107, 107, 1);
   }
 
   &__info {
