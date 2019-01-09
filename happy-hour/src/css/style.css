@@ -13,7 +13,8 @@
   .home__title {
     font-size: 5rem;
     letter-spacing: 1rem;
-    text-transform: lowercase; }
+    text-transform: uppercase;
+    letter-spacing: 2rem; }
   .home__title2 {
     font-size: 10rem; }
   .home__slogan {

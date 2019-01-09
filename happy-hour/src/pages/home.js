@@ -52,7 +52,7 @@ class Home extends Component {
     return (
       <div className="home">
         <h1 className="home__title">
-          BINGE<span className="home__title2">L.A.</span>
+          happy<span className="home__title2">L.A.</span>
         </h1>
         <h2 className="home__slogan">find your next spot</h2>
         <div className="home__search">
