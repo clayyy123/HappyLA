@@ -4,10 +4,12 @@ import Card from '../components/card';
 
 class Feed extends Component {
   state = {
+    location: this.props.location.props.location,
     bars: []
   };
 
   componentDidMount() {
+    console.log(this.props);
     httpClient.getBars().then(response => {
       this.setState({
         bars: response.data
@@ -18,7 +20,7 @@ class Feed extends Component {
   render() {
     return (
       <div className="feed">
-        <h1 className="feed__title">HAPPY HOUR FEED</h1>
+        <h1 className="feed__title">{this.state.location}</h1>
         <div className="feed__map">
           <div className="card__dot card__green feed__light" /> = MORE THAN ONE
           HOUR LEFT!

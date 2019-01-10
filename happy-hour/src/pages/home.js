@@ -49,6 +49,10 @@ class Home extends Component {
   }
 
   render() {
+    const toNew = {
+      pathname: '/feed',
+      props: this.state
+    };
     return (
       <div className="home">
         <h1 className="home__title">
@@ -69,7 +73,7 @@ class Home extends Component {
             {this.menu()}
           </div>
           <button className="home__button">
-            <Link className="home__link" to="/feed">
+            <Link className="home__link" to={toNew}>
               Start Binging!
             </Link>
           </button>
