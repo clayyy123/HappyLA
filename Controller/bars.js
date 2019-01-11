@@ -8,6 +8,7 @@ const client = yelp.client(apiKey);
 module.exports = {
   index: (req, res) => {
     Bar.find({}, (err, allBars) => {
+      console.log(allBars);
       res.json(allBars);
     });
   },
