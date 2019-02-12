@@ -26,11 +26,13 @@ class Card extends Component {
     count: '',
     location: '',
     number: '',
-    link: ''
+    link: '',
+    render: true
   };
 
   componentDidMount() {
     httpClient.getInfo(this.state.restaurant.name).then(response => {
+      console.log(response);
       this.setState({
         image: response.data.data.image_url,
         price: response.data.data.price,
@@ -44,63 +46,65 @@ class Card extends Component {
   }
 
   render() {
-    return (
-      <div className="card">
-        {this.lightHandler()}
-        <div className="card__info">
-          <div className="card__image-holder">
-            <img
-              className="card__image"
-              src={this.state.image}
-              alt="restaurant"
-            />
-          </div>
-          <div className="card__left">
-            <a
-              className="card__link"
-              target="_blank"
-              rel="noopener noreferrer"
-              href={this.state.link}
-            >
-              <h1 className="card__title">{this.props.props.name}</h1>
-            </a>
-            <div className="card__stats">
-              <h3>STATS:</h3>
-              <ul>
-                <li className="card__stat">
-                  <i class="fas fa-beer card__list-style" />
-                  RATING: {this.ratingHandler()}
-                </li>
-                <li className="card__stat">
-                  <i class="fas fa-beer card__list-style" />
-                  REVIEWS:{' '}
-                  <span className="card__count">{this.state.count}</span>
-                </li>
-                <li className="card__stat">
-                  <i class="fas fa-beer card__list-style" />
-                  PRICE: {this.priceHandler()}
-                </li>
-              </ul>
+    if (this.state.render) {
+      return (
+        <div className="card">
+          {this.lightHandler()}
+          <div className="card__info">
+            <div className="card__image-holder">
+              <img
+                className="card__image"
+                src={this.state.image}
+                alt="restaurant"
+              />
             </div>
-            {this.hourHandler()}
-          </div>
-          <div className="card__right">
-            <a
-              target="_blank"
-              href={
-                'http://maps.google.com/?q=' +
-                this.state.location +
-                'los angeles,CA'
-              }
-              className="card__address"
-            >
-              <h3>{this.state.location}</h3>
-            </a>
-            <h3>{this.state.number}</h3>
+            <div className="card__left">
+              <a
+                className="card__link"
+                target="_blank"
+                rel="noopener noreferrer"
+                href={this.state.link}
+              >
+                <h1 className="card__title">{this.props.props.name}</h1>
+              </a>
+              <div className="card__stats">
+                <h3>STATS:</h3>
+                <ul>
+                  <li className="card__stat">
+                    <i class="fas fa-beer card__list-style" />
+                    RATING: {this.ratingHandler()}
+                  </li>
+                  <li className="card__stat">
+                    <i class="fas fa-beer card__list-style" />
+                    REVIEWS:{' '}
+                    <span className="card__count">{this.state.count}</span>
+                  </li>
+                  <li className="card__stat">
+                    <i class="fas fa-beer card__list-style" />
+                    PRICE: {this.priceHandler()}
+                  </li>
+                </ul>
+              </div>
+              {this.hourHandler()}
+            </div>
+            <div className="card__right">
+              <a
+                target="_blank"
+                href={
+                  'http://maps.google.com/?q=' +
+                  this.state.location +
+                  'los angeles,CA'
+                }
+                className="card__address"
+              >
+                <h3>{this.state.location}</h3>
+              </a>
+              <h3>{this.state.number}</h3>
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 
   currentDay() {
