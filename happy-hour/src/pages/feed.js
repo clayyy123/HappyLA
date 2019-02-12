@@ -4,15 +4,20 @@ import Card from '../components/card';
 
 class Feed extends Component {
   state = {
-    location: this.props.location.props.location,
+    location: '',
     bars: []
   };
 
   componentDidMount() {
-    console.log(this.props);
+    if (this.props.location.props) {
+      localStorage.setItem('part', this.props.location.props.location);
+    }
+    var cityLocation = localStorage.getItem('part');
     httpClient.getBars().then(response => {
+      console.log(response);
       this.setState({
-        bars: response.data
+        bars: response.data,
+        location: cityLocation
       });
     });
   }
