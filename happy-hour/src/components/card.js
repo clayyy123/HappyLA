@@ -27,84 +27,128 @@ class Card extends Component {
     location: '',
     number: '',
     link: '',
-    render: true
+    loc: this.props.location
   };
 
   componentDidMount() {
     httpClient.getInfo(this.state.restaurant.name).then(response => {
-      console.log(response);
-      this.setState({
-        image: response.data.data.image_url,
-        price: response.data.data.price,
-        rating: response.data.data.rating,
-        count: response.data.data.review_count,
-        location: response.data.data.location.address1,
-        number: response.data.data.display_phone,
-        link: response.data.data.url
-      });
+      this.checkLocation(response.data.data.coordinates.longitude, response);
+      // this.setState({
+      //   image: response.data.data.image_url,
+      //   price: response.data.data.price,
+      //   rating: response.data.data.rating,
+      //   count: response.data.data.review_count,
+      //   location: response.data.data.location.address1,
+      //   number: response.data.data.display_phone,
+      //   link: response.data.data.url
+      // });
     });
   }
 
+  checkLocation(coor, serverResponse) {
+    if (
+      this.state.loc === 'downtown' &&
+      coor > -118.273845 &&
+      coor < -118.226018
+    ) {
+      this.setState({
+        image: serverResponse.data.data.image_url,
+        price: serverResponse.data.data.price,
+        rating: serverResponse.data.data.rating,
+        count: serverResponse.data.data.review_count,
+        location: serverResponse.data.data.location.address1,
+        number: serverResponse.data.data.display_phone,
+        link: serverResponse.data.data.url
+      });
+    } else if (
+      this.state.loc === 'central' &&
+      coor > -118.38762 &&
+      coor < -118.273845
+    ) {
+      this.setState({
+        image: serverResponse.data.data.image_url,
+        price: serverResponse.data.data.price,
+        rating: serverResponse.data.data.rating,
+        count: serverResponse.data.data.review_count,
+        location: serverResponse.data.data.location.address1,
+        number: serverResponse.data.data.display_phone,
+        link: serverResponse.data.data.url
+      });
+    } else if (
+      this.state.loc === 'west' &&
+      coor > -118.515462 &&
+      coor < -118.38762
+    ) {
+      this.setState({
+        image: serverResponse.data.data.image_url,
+        price: serverResponse.data.data.price,
+        rating: serverResponse.data.data.rating,
+        count: serverResponse.data.data.review_count,
+        location: serverResponse.data.data.location.address1,
+        number: serverResponse.data.data.display_phone,
+        link: serverResponse.data.data.url
+      });
+    }
+  }
+
   render() {
-    if (this.state.render) {
-      return (
-        <div className="card">
-          {this.lightHandler()}
-          <div className="card__info">
-            <div className="card__image-holder">
-              <img
-                className="card__image"
-                src={this.state.image}
-                alt="restaurant"
-              />
+    return (
+      <div className={this.state.image ? 'card' : 'no-display'}>
+        {this.lightHandler()}
+        <div className="card__info">
+          <div className="card__image-holder">
+            <img
+              className="card__image"
+              src={this.state.image}
+              alt="restaurant"
+            />
+          </div>
+          <div className="card__left">
+            <a
+              className="card__link"
+              target="_blank"
+              rel="noopener noreferrer"
+              href={this.state.link}
+            >
+              <h1 className="card__title">{this.props.props.name}</h1>
+            </a>
+            <div className="card__stats">
+              <h3>STATS:</h3>
+              <ul>
+                <li className="card__stat">
+                  <i class="fas fa-beer card__list-style" />
+                  RATING: {this.ratingHandler()}
+                </li>
+                <li className="card__stat">
+                  <i class="fas fa-beer card__list-style" />
+                  REVIEWS:{' '}
+                  <span className="card__count">{this.state.count}</span>
+                </li>
+                <li className="card__stat">
+                  <i class="fas fa-beer card__list-style" />
+                  PRICE: {this.priceHandler()}
+                </li>
+              </ul>
             </div>
-            <div className="card__left">
-              <a
-                className="card__link"
-                target="_blank"
-                rel="noopener noreferrer"
-                href={this.state.link}
-              >
-                <h1 className="card__title">{this.props.props.name}</h1>
-              </a>
-              <div className="card__stats">
-                <h3>STATS:</h3>
-                <ul>
-                  <li className="card__stat">
-                    <i class="fas fa-beer card__list-style" />
-                    RATING: {this.ratingHandler()}
-                  </li>
-                  <li className="card__stat">
-                    <i class="fas fa-beer card__list-style" />
-                    REVIEWS:{' '}
-                    <span className="card__count">{this.state.count}</span>
-                  </li>
-                  <li className="card__stat">
-                    <i class="fas fa-beer card__list-style" />
-                    PRICE: {this.priceHandler()}
-                  </li>
-                </ul>
-              </div>
-              {this.hourHandler()}
-            </div>
-            <div className="card__right">
-              <a
-                target="_blank"
-                href={
-                  'http://maps.google.com/?q=' +
-                  this.state.location +
-                  'los angeles,CA'
-                }
-                className="card__address"
-              >
-                <h3>{this.state.location}</h3>
-              </a>
-              <h3>{this.state.number}</h3>
-            </div>
+            {this.hourHandler()}
+          </div>
+          <div className="card__right">
+            <a
+              target="_blank"
+              href={
+                'http://maps.google.com/?q=' +
+                this.state.location +
+                'los angeles,CA'
+              }
+              className="card__address"
+            >
+              <h3>{this.state.location}</h3>
+            </a>
+            <h3>{this.state.number}</h3>
           </div>
         </div>
-      );
-    }
+      </div>
+    );
   }
 
   currentDay() {

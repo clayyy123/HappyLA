@@ -22,6 +22,10 @@ class Feed extends Component {
     });
   }
 
+  renderHandler() {
+    this.setState({});
+  }
+
   render() {
     return (
       <div className="feed">
@@ -36,7 +40,7 @@ class Feed extends Component {
         </div>
         <div className="feed__bars">
           {this.state.bars.map(bar => {
-            return <Card props={bar} />;
+            return <Card props={bar} location={this.state.location} />;
           })}
         </div>
       </div>

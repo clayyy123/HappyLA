@@ -145,6 +145,9 @@
 
 //###########################
 //######CARD
+.no-display {
+  display: none;
+}
 .card {
   display: flex;
   flex-direction: column;

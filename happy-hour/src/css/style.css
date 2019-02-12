@@ -97,6 +97,9 @@
     flex-wrap: wrap;
     justify-content: center; }
 
+.no-display {
+  display: none; }
+
 .card {
   display: flex;
   flex-direction: column;
@@ -196,3 +199,5 @@ html {
 
 body {
   font-size: 1rem; }
+
+/*# sourceMappingURL=style.css.map */
