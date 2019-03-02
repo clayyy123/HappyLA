@@ -10,7 +10,7 @@
   background-position: right;
   color: white;
   font-family: 'Shadows Into Light Two', cursive; }
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 501px) {
     .home {
       width: 100%; } }
   .home__title {
@@ -18,17 +18,17 @@
     letter-spacing: 1rem;
     text-transform: uppercase;
     letter-spacing: 2rem; }
-    @media only screen and (max-width: 500px) {
+    @media only screen and (max-width: 501px) {
       .home__title {
         font-size: 3rem; } }
   .home__title2 {
     font-size: 10rem; }
-    @media only screen and (max-width: 500px) {
+    @media only screen and (max-width: 501px) {
       .home__title2 {
         font-size: 5rem; } }
   .home__slogan {
     font-size: 3rem; }
-    @media only screen and (max-width: 500px) {
+    @media only screen and (max-width: 501px) {
       .home__slogan {
         font-size: 2rem; } }
   .home__search {
@@ -40,7 +40,7 @@
     @media only screen and (max-width: 710px) {
       .home__search {
         width: 60%; } }
-    @media only screen and (max-width: 500px) {
+    @media only screen and (max-width: 501px) {
       .home__search {
         width: 80%; } }
   .home__menu {
