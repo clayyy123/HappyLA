@@ -9,13 +9,9 @@ const PORT = process.env.PORT || 3001;
 const barRouter = require('./Route/bar.js');
 const userRouter = require('./Route/user.js');
 
-mongoose.connect(
-  MONGODB_URI,
-  { useNewUrlParser: true },
-  err => {
-    console.log(err || 'Connected to mongodb');
-  }
-);
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true }, err => {
+  console.log(err || 'Connected to mongodb');
+});
 
 server.use(bodyParser.json());
 server.use(logger('dev'));
