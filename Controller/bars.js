@@ -7,7 +7,7 @@ const client = yelp.client(apiKey);
 
 module.exports = {
   index: (req, res) => {
-    Bar.find({}, (err, allBars) => {
+    Bar.find({ location: req.params.location }, (err, allBars) => {
       console.log(allBars);
       res.json(allBars);
     });

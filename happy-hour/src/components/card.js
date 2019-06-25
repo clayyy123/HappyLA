@@ -5,12 +5,12 @@ class Card extends Component {
   state = {
     days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     restaurant: {
-      name: this.props.props.name,
+      name: '',
       add: '',
-      weekdayOnly: this.props.props.weekdayOnly,
-      weekendOnly: this.props.props.weekendOnly,
-      everyday: this.props.props.everyday,
-      onlyHours: this.props.props.onlyHours,
+      weekdayOnly: '',
+      weekendOnly: '',
+      everyday: '',
+      onlyHours: '',
       0: '',
       1: '',
       2: '',
@@ -20,75 +20,29 @@ class Card extends Component {
       6: ''
     },
     date: new Date(),
+    loc: '',
     image: '',
     price: '',
     rating: '',
     count: '',
     location: '',
     number: '',
-    link: '',
-    loc: this.props.location
+    link: ''
   };
 
   componentDidMount() {
-    httpClient.getInfo(this.state.restaurant.name).then(response => {
-      this.checkLocation(response.data.data.coordinates.longitude, response);
-      // this.setState({
-      //   image: response.data.data.image_url,
-      //   price: response.data.data.price,
-      //   rating: response.data.data.rating,
-      //   count: response.data.data.review_count,
-      //   location: response.data.data.location.address1,
-      //   number: response.data.data.display_phone,
-      //   link: response.data.data.url
-      // });
+    const { name } = this.props.bar;
+    httpClient.getInfo(name).then(serverResponse => {
+      this.setState({
+        image: serverResponse.data.data.image_url,
+        price: serverResponse.data.data.price,
+        rating: serverResponse.data.data.rating,
+        count: serverResponse.data.data.review_count,
+        location: serverResponse.data.data.location.address1,
+        number: serverResponse.data.data.display_phone,
+        link: serverResponse.data.data.url
+      });
     });
-  }
-
-  checkLocation(coor, serverResponse) {
-    if (
-      this.state.loc === 'downtown' &&
-      coor > -118.273845 &&
-      coor < -118.226018
-    ) {
-      this.setState({
-        image: serverResponse.data.data.image_url,
-        price: serverResponse.data.data.price,
-        rating: serverResponse.data.data.rating,
-        count: serverResponse.data.data.review_count,
-        location: serverResponse.data.data.location.address1,
-        number: serverResponse.data.data.display_phone,
-        link: serverResponse.data.data.url
-      });
-    } else if (
-      this.state.loc === 'central' &&
-      coor > -118.38762 &&
-      coor < -118.273845
-    ) {
-      this.setState({
-        image: serverResponse.data.data.image_url,
-        price: serverResponse.data.data.price,
-        rating: serverResponse.data.data.rating,
-        count: serverResponse.data.data.review_count,
-        location: serverResponse.data.data.location.address1,
-        number: serverResponse.data.data.display_phone,
-        link: serverResponse.data.data.url
-      });
-    } else if (
-      this.state.loc === 'west' &&
-      coor > -118.515462 &&
-      coor < -118.38762
-    ) {
-      this.setState({
-        image: serverResponse.data.data.image_url,
-        price: serverResponse.data.data.price,
-        rating: serverResponse.data.data.rating,
-        count: serverResponse.data.data.review_count,
-        location: serverResponse.data.data.location.address1,
-        number: serverResponse.data.data.display_phone,
-        link: serverResponse.data.data.url
-      });
-    }
   }
 
   render() {
@@ -110,7 +64,7 @@ class Card extends Component {
               rel="noopener noreferrer"
               href={this.state.link}
             >
-              <h1 className="card__title">{this.props.props.name}</h1>
+              <h1 className="card__title">{this.props.bar.name}</h1>
             </a>
             <div className="card__stats">
               <h3>STATS:</h3>

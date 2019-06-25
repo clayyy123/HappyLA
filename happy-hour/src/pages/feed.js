@@ -12,18 +12,14 @@ class Feed extends Component {
     if (this.props.location.props) {
       localStorage.setItem('part', this.props.location.props.location);
     }
-    var cityLocation = localStorage.getItem('part');
-    httpClient.getBars().then(response => {
+    const cityLocation = localStorage.getItem('part');
+    httpClient.getBars(cityLocation).then(response => {
       console.log(response);
       this.setState({
         bars: response.data,
         location: cityLocation
       });
     });
-  }
-
-  renderHandler() {
-    this.setState({});
   }
 
   render() {
@@ -40,7 +36,7 @@ class Feed extends Component {
         </div>
         <div className="feed__bars">
           {this.state.bars.map(bar => {
-            return <Card props={bar} location={this.state.location} />;
+            return <Card bar={bar} />;
           })}
         </div>
       </div>

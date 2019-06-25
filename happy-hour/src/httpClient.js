@@ -10,8 +10,8 @@ httpClient.submitInfo = function(fields) {
   return this({ method: 'post', url: '/api/bar/new', data: fields });
 };
 
-httpClient.getBars = function() {
-  return this({ method: 'get', url: 'api/bar/all' });
+httpClient.getBars = function(location) {
+  return this({ method: 'get', url: `api/bar/${location}` });
 };
 
 export default httpClient;
