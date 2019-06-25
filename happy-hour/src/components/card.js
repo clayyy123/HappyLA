@@ -46,6 +46,7 @@ class Card extends Component {
   }
 
   render() {
+    const { name, location } = this.props.bar;
     return (
       <div className={this.state.image ? 'card' : 'no-display'}>
         {this.lightHandler()}
@@ -64,7 +65,7 @@ class Card extends Component {
               rel="noopener noreferrer"
               href={this.state.link}
             >
-              <h1 className="card__title">{this.props.bar.name}</h1>
+              <h1 className="card__title">{name}</h1>
             </a>
             <div className="card__stats">
               <h3>STATS:</h3>
@@ -114,12 +115,7 @@ class Card extends Component {
   }
 
   hourHandler() {
-    const {
-      weekendOnly,
-      weekdayOnly,
-      everyday,
-      onlyHours
-    } = this.state.restaurant;
+    const { weekendOnly, weekdayOnly, everyday, onlyHours } = this.props.bar;
 
     if (weekdayOnly || weekendOnly || everyday) {
       var timeArray = onlyHours.split('-');
@@ -144,12 +140,7 @@ class Card extends Component {
   }
 
   lightHandler() {
-    const {
-      weekendOnly,
-      weekdayOnly,
-      everyday,
-      onlyHours
-    } = this.state.restaurant;
+    const { weekendOnly, weekdayOnly, everyday, onlyHours } = this.props.bar;
 
     let hour = this.state.date.getHours();
     let minutes = this.state.date.getMinutes();

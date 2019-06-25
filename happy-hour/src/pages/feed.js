@@ -35,8 +35,8 @@ class Feed extends Component {
           RIGHT NOW!
         </div>
         <div className="feed__bars">
-          {this.state.bars.map(bar => {
-            return <Card bar={bar} />;
+          {this.state.bars.map((bar, i) => {
+            return <Card key={i} bar={bar} />;
           })}
         </div>
       </div>
