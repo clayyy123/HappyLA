@@ -103,10 +103,15 @@
   flex-direction: column;
   justify-content: center;
   margin: 2rem;
-  font-family: 'Yanone Kaffeesatz', sans-serif; }
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  background-color: #a1acb3; }
   .feed__map {
     display: flex;
-    justify-content: center; }
+    justify-content: center;
+    flex-direction: column;
+    align-items: center; }
+  .feed__lights {
+    display: flex; }
   .feed__title {
     font-size: 5rem;
     text-align: center; }
@@ -188,22 +193,14 @@
     height: 0.5rem;
     width: 0.5rem;
     border-radius: 0.1rem;
-    margin: 0.3rem 0; }
+    margin: 0.3rem 0;
+    margin-right: 1rem; }
   .card__red {
-    background-color: red;
-    -webkit-box-shadow: 0px 0px 16px 21px red;
-    -moz-box-shadow: 0px 0px 16px 21px red;
-    box-shadow: 0px 0px 15px 3px red; }
+    background-color: red; }
   .card__yellow {
-    background-color: yellow;
-    -webkit-box-shadow: 0px 0px 16px 21px yellow;
-    -moz-box-shadow: 0px 0px 16px 21px yellow;
-    box-shadow: 0px 0px 15px 3px yellow; }
+    background-color: yellow; }
   .card__green {
-    background-color: rgba(0, 128, 0, 0.7);
-    -webkit-box-shadow: 0px 0px 16px 21px green;
-    -moz-box-shadow: 0px 0px 16px 21px green;
-    box-shadow: 0px 0px 15px 3px green; }
+    background-color: rgba(64, 228, 64, 0.7); }
 
 *,
 *:before,

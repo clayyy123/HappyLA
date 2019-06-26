@@ -33,12 +33,18 @@ class Feed extends Component {
       <div className="feed">
         <h1 className="feed__title">{this.state.location}</h1>
         <div className="feed__map">
-          <div className="card__dot card__green feed__light" /> = MORE THAN ONE
-          HOUR LEFT!
-          <div className="card__dot card__yellow feed__light" /> = LESS THAN ONE
-          HOUR LEFT!
-          <div className="card__dot card__red feed__light" /> = NO HAPPY HOUR
-          RIGHT NOW!
+          <div className="feed__lights">
+            <div className="card__dot card__green feed__light" /> = MORE THAN
+            ONE HOUR LEFT!
+          </div>
+          <div className="feed__lights">
+            <div className="card__dot card__yellow feed__light" /> = LESS THAN
+            ONE HOUR LEFT!
+          </div>
+          <div className="feed__lights">
+            <div className="card__dot card__red feed__light" /> = NO HAPPY HOUR
+            RIGHT NOW!
+          </div>
         </div>
         <div className="feed__bars">{this.cardMap()}</div>
       </div>

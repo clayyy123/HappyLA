@@ -2,6 +2,9 @@
 //####### Variables
 $tablet: 710px;
 $mobile: 501px;
+$red: red;
+$yellow: rgba(255, 255, 0, 1);
+$green: rgba(64, 228, 64, 0.7);
 
 //###########################
 //######HOME PAGE
@@ -153,13 +156,17 @@ $mobile: 501px;
   margin: 2rem;
   // font-family: 'Montserrat', sans-serif;
   font-family: 'Yanone Kaffeesatz', sans-serif;
+  background-color: #a1acb3;
 
   &__map {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
 
-  &__light {
+  &__lights {
+    display: flex;
   }
 
   &__title {
@@ -293,26 +300,27 @@ $mobile: 501px;
     width: 0.5rem;
     border-radius: 0.1rem;
     margin: 0.3rem 0;
+    margin-right: 1rem;
   }
 
   &__red {
-    background-color: red;
-    -webkit-box-shadow: 0px 0px 16px 21px red;
-    -moz-box-shadow: 0px 0px 16px 21px red;
-    box-shadow: 0px 0px 15px 3px red;
+    background-color: $red;
+    // -webkit-box-shadow: 0px 0px 16px 21px $red;
+    // -moz-box-shadow: 0px 0px 16px 21px $red;
+    // box-shadow: 0px 0px 15px 3px $red;
   }
 
   &__yellow {
-    background-color: yellow;
-    -webkit-box-shadow: 0px 0px 16px 21px rgba(255, 255, 0, 1);
-    -moz-box-shadow: 0px 0px 16px 21px rgba(255, 255, 0, 1);
-    box-shadow: 0px 0px 15px 3px rgba(255, 255, 0, 1);
+    background-color: $yellow;
+    // -webkit-box-shadow: 0px 0px 16px 21px $yellow;
+    // -moz-box-shadow: 0px 0px 16px 21px $yellow;
+    // box-shadow: 0px 0px 15px 3px $yellow;
   }
 
   &__green {
-    background-color: rgba(0, 128, 0, 0.7);
-    -webkit-box-shadow: 0px 0px 16px 21px rgb(0, 128, 0);
-    -moz-box-shadow: 0px 0px 16px 21px rgb(0, 128, 0);
-    box-shadow: 0px 0px 15px 3px rgb(0, 128, 0);
+    background-color: $green;
+    // -webkit-box-shadow: 0px 0px 16px 21px $green;
+    // -moz-box-shadow: 0px 0px 16px 21px $green;
+    // box-shadow: 0px 0px 15px 3px $green;
   }
 }

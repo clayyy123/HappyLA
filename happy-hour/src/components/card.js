@@ -163,7 +163,13 @@ class Card extends Component {
         hour = hour - 12;
         console.log(start, end, hour, minutes);
       }
-      if (hour >= start && hour <= end && end !== hour && minutes <= 59) {
+      if (
+        hour >= start &&
+        hour <= end &&
+        end !== hour &&
+        minutes <= 59 &&
+        end - hour === 1
+      ) {
         console.log('yellow');
         return (
           <div className="card__light">
