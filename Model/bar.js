@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const barSchema = new mongoose.Schema({
-  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   name: { type: String },
   location: { type: String },
   food: { type: Boolean },

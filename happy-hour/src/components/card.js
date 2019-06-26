@@ -4,21 +4,6 @@ import httpClient from '../httpClient';
 class Card extends Component {
   state = {
     days: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-    restaurant: {
-      name: '',
-      add: '',
-      weekdayOnly: '',
-      weekendOnly: '',
-      everyday: '',
-      onlyHours: '',
-      0: '',
-      1: '',
-      2: '',
-      3: '',
-      4: '',
-      5: '',
-      6: ''
-    },
     date: new Date(),
     loc: '',
     image: '',
@@ -34,19 +19,23 @@ class Card extends Component {
     const { name } = this.props.bar;
     httpClient.getInfo(name).then(serverResponse => {
       this.setState({
-        image: serverResponse.data.data.image_url,
-        price: serverResponse.data.data.price,
-        rating: serverResponse.data.data.rating,
-        count: serverResponse.data.data.review_count,
-        location: serverResponse.data.data.location.address1,
-        number: serverResponse.data.data.display_phone,
-        link: serverResponse.data.data.url
+        image: serverResponse.data.data && serverResponse.data.data.image_url,
+        price: serverResponse.data.data && serverResponse.data.data.price,
+        rating: serverResponse.data.data && serverResponse.data.data.rating,
+        count:
+          serverResponse.data.data && serverResponse.data.data.review_count,
+        location:
+          serverResponse.data.data &&
+          serverResponse.data.data.location.address1,
+        number:
+          serverResponse.data.data && serverResponse.data.data.display_phone,
+        link: serverResponse.data.data && serverResponse.data.data.url
       });
     });
   }
 
   render() {
-    const { name, location } = this.props.bar;
+    const { name } = this.props.bar;
     return (
       <div className={this.state.image ? 'card' : 'no-display'}>
         {this.lightHandler()}
@@ -76,7 +65,7 @@ class Card extends Component {
                 </li>
                 <li className="card__stat">
                   <i class="fas fa-beer card__list-style" />
-                  REVIEWS:{' '}
+                  REVIEWS:
                   <span className="card__count">{this.state.count}</span>
                 </li>
                 <li className="card__stat">
@@ -263,6 +252,33 @@ class Card extends Component {
           </div>
         );
       }
+    }
+  }
+
+  distance(lat1, lon1, lat2, lon2, unit) {
+    if (lat1 == lat2 && lon1 == lon2) {
+      return 0;
+    } else {
+      var radlat1 = (Math.PI * lat1) / 180;
+      var radlat2 = (Math.PI * lat2) / 180;
+      var theta = lon1 - lon2;
+      var radtheta = (Math.PI * theta) / 180;
+      var dist =
+        Math.sin(radlat1) * Math.sin(radlat2) +
+        Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+      if (dist > 1) {
+        dist = 1;
+      }
+      dist = Math.acos(dist);
+      dist = (dist * 180) / Math.PI;
+      dist = dist * 60 * 1.1515;
+      if (unit == 'K') {
+        dist = dist * 1.609344;
+      }
+      if (unit == 'N') {
+        dist = dist * 0.8684;
+      }
+      return dist;
     }
   }
 }

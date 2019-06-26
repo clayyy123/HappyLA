@@ -22,6 +22,12 @@ class Feed extends Component {
     });
   }
 
+  cardMap = () => {
+    return this.state.bars.map((bar, i) => {
+      return <Card key={i} bar={bar} />;
+    });
+  };
+
   render() {
     return (
       <div className="feed">
@@ -34,11 +40,7 @@ class Feed extends Component {
           <div className="card__dot card__red feed__light" /> = NO HAPPY HOUR
           RIGHT NOW!
         </div>
-        <div className="feed__bars">
-          {this.state.bars.map((bar, i) => {
-            return <Card key={i} bar={bar} />;
-          })}
-        </div>
+        <div className="feed__bars">{this.cardMap()}</div>
       </div>
     );
   }
