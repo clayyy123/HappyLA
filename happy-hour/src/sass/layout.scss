@@ -153,10 +153,17 @@ $green: rgba(64, 228, 64, 0.7);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 2rem;
   margin: 2rem;
   // font-family: 'Montserrat', sans-serif;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   background-color: #a1acb3;
+  border-radius: 2rem;
+
+  @media only screen and (max-width: $mobile) {
+    padding: 0;
+    margin: 0;
+  }
 
   &__map {
     display: flex;
