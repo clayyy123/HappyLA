@@ -20,5 +20,6 @@
     "node-sass": "^4.11.0",
     "nodemon": "^1.18.8",
     "yelp-fusion": "^2.2.1"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }
