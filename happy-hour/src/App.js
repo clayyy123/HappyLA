@@ -6,9 +6,16 @@ import Create from './pages/create';
 
 class App extends Component {
   state = {
+    location: 'Which part of LA?',
     latitude: 0,
     longitude: 0
   };
+
+  locationHandler(loc) {
+    this.setState({
+      location: loc
+    });
+  }
 
   success = position => {
     const latitude = position.coords.latitude;
@@ -39,7 +46,13 @@ class App extends Component {
           <Route
             path="/feed"
             render={props => {
-              return <Feed {...props} location={this.state} />;
+              return (
+                <Feed
+                  {...props}
+                  location={this.state}
+                  part={this.state.location}
+                />
+              );
             }}
           />
 
@@ -53,7 +66,13 @@ class App extends Component {
           <Route
             path="/"
             render={props => {
-              return <Home {...props} />;
+              return (
+                <Home
+                  {...props}
+                  changeLocation={this.locationHandler.bind(this)}
+                  part={this.state.location}
+                />
+              );
             }}
           />
         </Switch>

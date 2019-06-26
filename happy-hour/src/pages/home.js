@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class Home extends Component {
   state = {
-    location: 'which part of LA?',
+    // location: 'which part of LA?',
     icon: <i className="fas fa-caret-down fa-lg" />,
     toggle: false
   };
@@ -41,8 +41,9 @@ class Home extends Component {
   }
 
   listHandler(e) {
+    console.log(e.target.innerText);
+    this.props.changeLocation(e.target.innerText);
     this.setState({
-      location: e.target.innerText,
       toggle: false,
       icon: <i className="fas fa-caret-down fa-lg" />
     });
@@ -62,7 +63,7 @@ class Home extends Component {
         <div className="home__search">
           <div className="home__menu">
             <div className="home__location">
-              {this.state.location}
+              {this.props.part}
               <span
                 className="home__icon"
                 onClick={this.menuHandler.bind(this)}
@@ -73,7 +74,7 @@ class Home extends Component {
             {this.menu()}
           </div>
           <button className="home__button">
-            <Link className="home__link" to={toNew}>
+            <Link className="home__link" to="/feed">
               Start Binging!
             </Link>
           </button>
