@@ -12,30 +12,42 @@ class Card extends Component {
     count: '',
     location: '',
     number: '',
-    link: ''
+    link: '',
+    lat: 0,
+    long: 0
   };
 
   componentDidMount() {
     const { name } = this.props.bar;
     httpClient.getInfo(name).then(serverResponse => {
+      const {
+        image_url,
+        price,
+        rating,
+        review_count,
+        location,
+        display_phone,
+        url,
+        coordinates
+      } = serverResponse.data.data;
       this.setState({
-        image: serverResponse.data.data && serverResponse.data.data.image_url,
-        price: serverResponse.data.data && serverResponse.data.data.price,
-        rating: serverResponse.data.data && serverResponse.data.data.rating,
-        count:
-          serverResponse.data.data && serverResponse.data.data.review_count,
-        location:
-          serverResponse.data.data &&
-          serverResponse.data.data.location.address1,
-        number:
-          serverResponse.data.data && serverResponse.data.data.display_phone,
-        link: serverResponse.data.data && serverResponse.data.data.url
+        image: serverResponse.data.data && image_url,
+        price: serverResponse.data.data && price,
+        rating: serverResponse.data.data && rating,
+        count: serverResponse.data.data && review_count,
+        location: serverResponse.data.data && location.address1,
+        number: serverResponse.data.data && display_phone,
+        link: serverResponse.data.data && url,
+        lat: serverResponse.data.data && coordinates.latitude,
+        long: serverResponse.data.data && coordinates.longitude
       });
     });
   }
 
   render() {
     const { name } = this.props.bar;
+    const { location } = this.props;
+    const { lat, long } = this.state;
     return (
       <div className={this.state.image ? 'card' : 'no-display'}>
         {this.lightHandler()}
@@ -79,6 +91,7 @@ class Card extends Component {
           <div className="card__right">
             <a
               target="_blank"
+              rel="noopener noreferrer"
               href={
                 'http://maps.google.com/?q=' +
                 this.state.location +
@@ -89,6 +102,11 @@ class Card extends Component {
               <h3>{this.state.location}</h3>
             </a>
             <h3>{this.state.number}</h3>
+
+            <h3>
+              {this.distance(lat, long, location.latitude, location.longitude)}{' '}
+              miles
+            </h3>
           </div>
         </div>
       </div>
@@ -255,8 +273,8 @@ class Card extends Component {
     }
   }
 
-  distance(lat1, lon1, lat2, lon2, unit) {
-    if (lat1 == lat2 && lon1 == lon2) {
+  distance(lat1, lon1, lat2, lon2) {
+    if (lat1 === lat2 && lon1 === lon2) {
       return 0;
     } else {
       var radlat1 = (Math.PI * lat1) / 180;
@@ -272,12 +290,9 @@ class Card extends Component {
       dist = Math.acos(dist);
       dist = (dist * 180) / Math.PI;
       dist = dist * 60 * 1.1515;
-      if (unit == 'K') {
-        dist = dist * 1.609344;
-      }
-      if (unit == 'N') {
-        dist = dist * 0.8684;
-      }
+      //this will return in nautical miles
+      dist = (dist * 0.8684) / 1.151;
+      dist = Math.round(10 * dist) / 10;
       return dist;
     }
   }
