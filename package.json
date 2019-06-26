@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch:sass": "node-sass happy-hour/src/sass/main.scss happy-hour/src/css/style.css -w",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    "heroku-postbuild": "cd happy-hour && npm install --only=dev && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
