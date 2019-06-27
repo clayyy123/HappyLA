@@ -165,7 +165,8 @@
     object-fit: cover; }
   .card__left {
     flex: 0 0 40%;
-    margin: 1rem; }
+    padding: 0 1rem;
+    padding-top: 1rem; }
   .card__right {
     flex: 1;
     display: flex;
