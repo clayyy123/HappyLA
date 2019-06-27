@@ -174,16 +174,22 @@
     padding-top: 2rem; }
     .card__right h3 {
       margin-top: 0.5rem; }
+      @media only screen and (max-width: 501px) {
+        .card__right h3 {
+          font-size: 1rem; } }
   .card__title {
     font-size: 2rem;
     margin-bottom: 0.5rem; }
     .card__title:hover {
       text-decoration: underline; }
+    @media only screen and (max-width: 501px) {
+      .card__title {
+        font-size: 1.5 rem; } }
   .card__link {
     text-decoration: none;
     color: black; }
   .card__hH {
-    font-size: 2rem; }
+    font-size: 1.5rem; }
   .card__stars {
     display: inline-block; }
   .card__stats {

@@ -208,6 +208,7 @@ $green: rgba(64, 228, 64, 0.7);
   transition: all 0.1s;
   margin: 0.5rem;
   max-width: 35.6rem;
+
   @media only screen and (max-width: $mobile) {
     width: 95%;
     border-radius: 1rem;
@@ -250,6 +251,10 @@ $green: rgba(64, 228, 64, 0.7);
 
     h3 {
       margin-top: 0.5rem;
+
+      @media only screen and (max-width: $mobile) {
+        font-size: 1rem;
+      }
     }
   }
 
@@ -260,6 +265,10 @@ $green: rgba(64, 228, 64, 0.7);
     &:hover {
       text-decoration: underline;
     }
+
+    @media only screen and (max-width: $mobile) {
+      font-size: 1.5 rem;
+    }
   }
 
   &__link {
@@ -268,7 +277,7 @@ $green: rgba(64, 228, 64, 0.7);
   }
 
   &__hH {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   &__stars {
