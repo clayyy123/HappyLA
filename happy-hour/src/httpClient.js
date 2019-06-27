@@ -11,7 +11,7 @@ httpClient.submitInfo = function(fields) {
 };
 
 httpClient.getBars = function(location) {
-  return this({ method: 'get', url: `api/bar/${location}` });
+  return this({ method: 'get', url: `/api/bar/${location}` });
 };
 
 export default httpClient;
