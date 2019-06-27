@@ -20,14 +20,14 @@ server.use(logger('dev'));
 server.use('/api/bar', barRouter);
 server.use('/api/user', userRouter);
 
-// const bars = require('./csvjson.js');
-// console.log(bars);
-// server.post('/create', async (req, res) => {
-//   for (let i = 0; i < bars.length; i++) {
-//     const newBar = await Bars.create(bars[i]);
-//   }
-//   res.json({ message: 'bars created' });
-// });
+const bars = require('./csvjson.js');
+console.log(bars);
+server.post('/create', async (req, res) => {
+  for (let i = 0; i < bars.length; i++) {
+    const newBar = await Bars.create(bars[i]);
+  }
+  res.json({ message: 'bars created' });
+});
 
 server.use(express.static(`${__dirname}/happy-hour/build`));
 
