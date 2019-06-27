@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 class Home extends Component {
   state = {
-    // location: 'which part of LA?',
     icon: <i className="fas fa-caret-down fa-lg" />,
     toggle: false
   };

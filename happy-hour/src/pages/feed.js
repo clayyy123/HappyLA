@@ -9,10 +9,6 @@ class Feed extends Component {
   };
 
   componentDidMount() {
-    // if (this.props.location.props) {
-    //   localStorage.setItem('part', this.props.location.props.location);
-    // }
-    // const cityLocation = localStorage.getItem('part');
     httpClient.getBars(this.props.part).then(response => {
       console.log(response);
       this.setState({
