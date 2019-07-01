@@ -268,7 +268,7 @@ $green: rgba(64, 228, 64, 0.7);
     }
 
     @media only screen and (max-width: $mobile) {
-      font-size: 1.5 rem;
+      font-size: 1 rem;
     }
   }
 
@@ -353,5 +353,16 @@ $green: rgba(64, 228, 64, 0.7);
     // -webkit-box-shadow: 0px 0px 16px 21px $green;
     // -moz-box-shadow: 0px 0px 16px 21px $green;
     // box-shadow: 0px 0px 15px 3px $green;
+  }
+}
+
+//###########################
+//######BORDER
+.border {
+  display: none;
+
+  @media only screen and (max-width: $mobile) {
+    display: block;
+    width: 90%;
   }
 }

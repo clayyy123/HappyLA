@@ -20,7 +20,12 @@ class Feed extends Component {
 
   cardMap = () => {
     return this.state.bars.map((bar, i) => {
-      return <Card key={i} bar={bar} location={this.props.location} />;
+      return (
+        <>
+          <Card key={i} bar={bar} location={this.props.location} />
+          <hr className="border" />
+        </>
+      );
     });
   };
 

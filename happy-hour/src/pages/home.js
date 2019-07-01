@@ -49,10 +49,6 @@ class Home extends Component {
   }
 
   render() {
-    const toNew = {
-      pathname: '/feed',
-      props: this.state
-    };
     return (
       <div className="home">
         <h1 className="home__title">

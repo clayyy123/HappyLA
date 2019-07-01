@@ -185,7 +185,7 @@
       text-decoration: underline; }
     @media only screen and (max-width: 501px) {
       .card__title {
-        font-size: 1.5 rem; } }
+        font-size: 1 rem; } }
   .card__link {
     text-decoration: none;
     color: black; }
@@ -228,6 +228,13 @@
     background-color: yellow; }
   .card__green {
     background-color: rgba(64, 228, 64, 0.7); }
+
+.border {
+  display: none; }
+  @media only screen and (max-width: 501px) {
+    .border {
+      display: block;
+      width: 90%; } }
 
 *,
 *:before,

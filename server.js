@@ -29,11 +29,11 @@ server.use('/api/user', userRouter);
 //   res.json({ message: 'bars created' });
 // });
 
-// server.use(express.static(`${__dirname}/happy-hour/build`));
+server.use(express.static(`${__dirname}/happy-hour/build`));
 
-// server.use('*', (req, res) => {
-//   res.sendFile(`${__dirname}/happy-hour/build/index.html`);
-// });
+server.use('*', (req, res) => {
+  res.sendFile(`${__dirname}/happy-hour/build/index.html`);
+});
 
 server.listen(PORT, err => {
   console.log(err || `server running on ${PORT}`);
