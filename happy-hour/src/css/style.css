@@ -237,6 +237,9 @@
       display: block;
       width: 90%; } }
 
+.card-container {
+  width: 100%; }
+
 *,
 *:before,
 *:after {

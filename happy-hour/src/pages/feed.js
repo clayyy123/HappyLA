@@ -20,7 +20,7 @@ class Feed extends Component {
   cardMap = () => {
     return this.state.bars.map((bar, i) => {
       return (
-        <div key={i}>
+        <div className="card-container" key={i}>
           <Card bar={bar} location={this.props.location} />
           <hr className="border" />
         </div>
