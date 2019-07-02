@@ -232,7 +232,8 @@ class Card extends Component {
           <i className="fas fa-star" />
           <i className="fas fa-star" />
           <i className="fas fa-star" />
-          <i class="fas fa-star-o" />
+          <i class="far fa-star" />
+          <i class="fa fa-star-o" />
         </div>
       );
     } else if (ratingSplit[0] === '5') {
