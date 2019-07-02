@@ -185,7 +185,7 @@
       text-decoration: underline; }
     @media only screen and (max-width: 501px) {
       .card__title {
-        font-size: 1 rem; } }
+        font-size: 1.5rem; } }
   .card__link {
     text-decoration: none;
     color: black; }
@@ -194,7 +194,8 @@
   .card__stars {
     display: inline-block; }
   .card__stats {
-    margin-bottom: 1rem; }
+    margin-bottom: 1rem;
+    font-size: 0.8rem; }
   .card__stat {
     list-style: none; }
     .card__stat:not(:last-child) {
