@@ -29,7 +29,7 @@ class Home extends Component {
     if (!this.state.toggle) {
       this.setState({
         toggle: true,
-        icon: <i class="fas fa-caret-up fa-lg" />
+        icon: <i className="fas fa-caret-up fa-lg" />
       });
     } else if (this.state.toggle) {
       this.setState({
@@ -40,7 +40,6 @@ class Home extends Component {
   }
 
   listHandler(e) {
-    console.log(e.target.innerText);
     this.props.changeLocation(e.target.innerText);
     this.setState({
       toggle: false,

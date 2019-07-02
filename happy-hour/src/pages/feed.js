@@ -10,7 +10,6 @@ class Feed extends Component {
 
   componentDidMount() {
     httpClient.getBars(this.props.part).then(response => {
-      console.log(response);
       this.setState({
         bars: response.data,
         location: this.props.part
@@ -21,10 +20,10 @@ class Feed extends Component {
   cardMap = () => {
     return this.state.bars.map((bar, i) => {
       return (
-        <>
-          <Card key={i} bar={bar} location={this.props.location} />
+        <div key={i}>
+          <Card bar={bar} location={this.props.location} />
           <hr className="border" />
-        </>
+        </div>
       );
     });
   };

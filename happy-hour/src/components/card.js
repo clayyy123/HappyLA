@@ -211,8 +211,8 @@ class Card extends Component {
           <i className="fas fa-star" />
           <i className="fas fa-star" />
           <i className="fas fa-star" />
-          <i class="far fa-star" />
-          <i class="far fa-star" />
+          <i className="far fa-star" />
+          <i className="far fa-star" />
         </div>
       );
     } else if (ratingSplit[0] === '4' && ratingSplit[1]) {
@@ -222,7 +222,7 @@ class Card extends Component {
           <i className="fas fa-star" />
           <i className="fas fa-star" />
           <i className="fas fa-star" />
-          <i class="fas fa-star-half-alt" />
+          <i className="fas fa-star-half-alt" />
         </div>
       );
     } else if (ratingSplit[0] === '4') {
@@ -232,18 +232,17 @@ class Card extends Component {
           <i className="fas fa-star" />
           <i className="fas fa-star" />
           <i className="fas fa-star" />
-          <i class="far fa-star" />
-          <i class="fa fa-star-o" />
+          <i className="far fa-star" />
         </div>
       );
     } else if (ratingSplit[0] === '5') {
       return (
         <div className="card__stars">
-          <i class="fas fa-star" />
-          <i class="fas fa-star" />
-          <i class="fas fa-star" />
-          <i class="fas fa-star" />
-          <i class="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
+          <i className="fas fa-star" />
         </div>
       );
     }
