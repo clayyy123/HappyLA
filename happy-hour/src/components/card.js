@@ -184,7 +184,6 @@ class Card extends Component {
           </div>
         );
       } else {
-        console.log('red');
         return (
           <div className="card__light">
             <div className="card__dot card__red" />
@@ -233,7 +232,7 @@ class Card extends Component {
           <i className="fas fa-star" />
           <i className="fas fa-star" />
           <i className="fas fa-star" />
-          <i class="far fa-star" />
+          <i class="fas fa-star-o" />
         </div>
       );
     } else if (ratingSplit[0] === '5') {
@@ -280,7 +279,6 @@ class Card extends Component {
   }
 
   distance(lat1, lon1, lat2, lon2) {
-    console.log(lat1, lon1, lat2, lon2);
     if (lat1 === lat2 && lon1 === lon2) {
       return 0;
     } else {
