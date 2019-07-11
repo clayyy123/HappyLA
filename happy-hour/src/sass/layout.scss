@@ -158,7 +158,7 @@ $green: rgba(64, 228, 64, 0.7);
   margin: 2rem;
   // font-family: 'Montserrat', sans-serif;
   font-family: 'Yanone Kaffeesatz', sans-serif;
-  background-color: #a1acb3;
+  // background-color: #a1acb3;
   border-radius: 2rem;
 
   @media only screen and (max-width: $mobile) {
@@ -210,8 +210,9 @@ $green: rgba(64, 228, 64, 0.7);
   max-width: 35.6rem;
 
   @media only screen and (max-width: $mobile) {
-    width: 95%;
-    border-radius: 1rem;
+    border: none;
+    width: 100%;
+    margin: 0.5rem 0;
   }
 
   &:hover {

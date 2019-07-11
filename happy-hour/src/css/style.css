@@ -106,7 +106,6 @@
   padding: 2rem;
   margin: 2rem;
   font-family: 'Yanone Kaffeesatz', sans-serif;
-  background-color: #a1acb3;
   border-radius: 2rem; }
   @media only screen and (max-width: 501px) {
     .feed {
@@ -146,8 +145,9 @@
   max-width: 35.6rem; }
   @media only screen and (max-width: 501px) {
     .card {
-      width: 95%;
-      border-radius: 1rem; } }
+      border: none;
+      width: 100%;
+      margin: 0.5rem 0; } }
   .card:hover {
     -webkit-box-shadow: 2px 3px 5px 0px #6b6b6b;
     -moz-box-shadow: 2px 3px 5px 0px #6b6b6b;
